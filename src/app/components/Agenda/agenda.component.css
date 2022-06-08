@@ -1,0 +1,58 @@
+
+h1{
+    font-family: pacifica;
+    padding-top: 50px;
+    font-size: 3cm;
+    text-align: center;
+    color: rgb(251, 251, 251);
+    font-weight: bolder;
+}
+
+.formulario{
+    margin: 50px;
+}
+
+h2{
+  font-style: italic;
+  border-radius: 6px;
+  border-bottom: 2px solid rgb(237, 117, 43);
+  background:rgb(237, 117, 43);
+  color:#fff;
+
+  display:inline-block;
+  padding:3px 15px;
+  ;
+}
+
+.campo{
+    border-radius: 6px;
+    border-style: solid;
+    background-color: rgb(234, 187, 69);
+}
+
+.leyenda{
+    background-color:  #e08c06;
+    border-radius: 3px;
+    color: black;
+}
+
+.mat-divider{
+    border-style:solid ;
+    color: gray;
+}
+.contacto{
+    background-color: rgb(237, 117, 43) ;
+    border-radius: 6px;
+}
+h4{
+    color: white;
+}
+.show-contacts{
+    background-color: black;
+}
+#añadir{
+    background-color: rgb(237, 117, 43);
+}
+#limpiar{
+    background-color: red;
+}

@@ -1,0 +1,99 @@
+
+<div id="formulario" style="background: radial-gradient(circle, rgba(224,140,6,1) 0%, rgba(0,0,0,1) 52%);">
+<h1>GymTastic <mat-icon style="font-size: 2cm;">fitness_center</mat-icon></h1>
+<form class="formulario">
+    <h2>Añadir socio</h2>
+    <fieldset class="campo">
+        <legend class="leyenda">Datos Personales</legend>
+
+        <mat-grid-list cols="4" rowHeight="2:1">
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" placeholder="Introduce tu nombre" [formControl]="nombreFC" required>
+                    <mat-error *ngIf="nombreFC.invalid">{{getErrorMessageNombre()}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput type="text" placeholder="Introduce tus apellidos" [formControl]="apellidosFC" required>
+                    <mat-error *ngIf="apellidosFC.invalid">{{getErrorMessageApellidos()}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Número de socio</mat-label>
+                    <input matInput type="number" placeholder="Introduce tu número de socio" [formControl]="socioFC" required>
+                    <mat-error *ngIf="socioFC.invalid">{{getErrorMessageSocio()}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>DNI</mat-label>
+                    <input matInput type="text" placeholder="Introduce tu DNI" [formControl]="dniFC" required>
+                    <mat-error *ngIf="dniFC.invalid">{{getErrorMessageDni()}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput type="text" placeholder="Introduce tu teléfono" [formControl]="telefonoFC" required>
+                    <mat-error *ngIf="telefonoFC.invalid">{{getErrorMessageTelefono()}}</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Sexo</mat-label>
+                    <select matNativeControl [formControl]="sexoFC" required>
+                      <option value="Masculino">Masculino</option>
+                      <option value="Femenino">Femenino</option>
+                    </select>
+                    <mat-error *ngIf="sexoFC.invalid">{{getErrorMessageSexo()}}</mat-error>
+                  </mat-form-field> 
+            </mat-grid-tile>
+        </mat-grid-list>
+    </fieldset>
+    <br/>
+    <div style="text-align: center;"> 
+    <button type="button" id="añadir" mat-raised-button color="primary" (click)="addContacto()">Añadir/modificar</button> &nbsp;&nbsp;
+    <button #resetb type="reset" id="limpiar" mat-raised-button color="accent">Limpiar formulario</button>
+    </div>
+</form>
+<br/>
+<br/>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="show-contacts">
+<mat-grid-list cols="4" rowHeight="1:1">
+    <div *ngFor="let contacto of contactlist; let i = index">
+        <mat-grid-tile>
+            <div class="contacto" style="padding: 15px;">
+                <mat-card-title>{{contacto.nombre}}</mat-card-title>
+                <mat-card-subtitle><h4>{{contacto.apellidos}}</h4></mat-card-subtitle>
+                <mat-card-content>
+                    <p>Número de socio: {{contacto.socio}}</p>
+                    <p>DNI: {{contacto.dni}}</p>
+                    <p>Teléfono: {{contacto.telefono}}</p>
+                    <p>Sexo: {{contacto.sexo}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-mini-fab color="warn" aria-label="Borrar contacto" (click)="removeContacto(i)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-mini-fab style="background-color: rgb(234, 187, 69)" aria-label="Editar contacto" (click)="editContacto(i)">
+                        <mat-icon style="color:black">edit</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </div>
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>
+</div>
